@@ -43,4 +43,4 @@ Maximum is 2 people
 
 ## Solution
 
-<!-- ![](image/validation.png) -->
+![](image/validation2.png)
