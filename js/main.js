@@ -27,6 +27,20 @@ function checkInputs() {
     if(!confirmPasswordValue) 
             setError(confirmPassword,"Error: Confirm Password field cannot be blank")
 
+
+    if(usernameValue) 
+      
+    setSuccess(username,"Success: confirmed"),
+    comparePassword()
+    
+    if(passwordValue.length>0) 
+    setSuccess(password,"Success: Success Confirmed"),
+    comparePassword()
+
+    if(confirmPasswordValue.length>0) 
+    setSuccess(confirmPassword,"Success: Success Confirmed"),
+    comparePassword()
+
      else {
         comparePassword()
 
@@ -36,17 +50,15 @@ function checkInputs() {
 function setError(input,message) {
     const formControl = input.parentElement
     const small = formControl.querySelector("small")
-    
     formControl.className = "form-control error"
     small.textContent = message
 }
 
-function setSuccess(input,message) {
-    const formControl = input.parentElement
-    const small2 = formControl.querySelector("small2")
-    
+function setSuccess(input) {
+    const formControl = input.parentElement  
     formControl.className = "form-control success"
-    small2.textContent = message
+    // this totally replaced the class when form is submitted
+   
 }
 
 
@@ -59,8 +71,9 @@ function comparePassword() {
     if(passwordValue !== confirmPasswordValue) {
         console.log("password does not match")
         setError(password,"Error: Password does not match")
+        setError(confirmPassword,"Error: Password does not match")
     
-    } else if (passwordValue === confirmPasswordValue){
+    } else if (passwordValue === confirmPasswordValue && passwordValue.length > 0) {
         console.log("password match")
         setSuccess(password,"Success: Password confirmed")
     }
