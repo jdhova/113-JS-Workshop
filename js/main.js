@@ -19,17 +19,17 @@ function checkInputs() {
     const confirmPasswordValue = confirmPassword.value.trim()
 
     if(!usernameValue) 
-      setError(username,"Error: Username field cannot be blank")
+    setError(username,"Error: Username field cannot be blank")
 
     if(!passwordValue) 
-        setError(password,"Error: Password field cannot be blank")
+    setError(password,"Error: Password field cannot be blank")
+    
 
     if(!confirmPasswordValue) 
-            setError(confirmPassword,"Error: Confirm Password field cannot be blank")
+    setError(confirmPassword,"Error: Confirm Password field cannot be blank")
 
 
-    if(usernameValue) 
-      
+    if(usernameValue)  
     setSuccess(username,"Success: confirmed"),
     comparePassword()
     
@@ -42,6 +42,7 @@ function checkInputs() {
     comparePassword()
 
      else {
+         // not required
         comparePassword()
 
     }
@@ -70,7 +71,8 @@ function comparePassword() {
     
     if(passwordValue !== confirmPasswordValue) {
         console.log("password does not match")
-        setError(password,"Error: Password does not match")
+        // setError(password,"Error: Password does not match")
+        setError(password)
         setError(confirmPassword,"Error: Password does not match")
     
     } else if (passwordValue === confirmPasswordValue && passwordValue.length > 0) {
